@@ -1,0 +1,26 @@
+package uy.ort.ob20182;
+
+public class ListaNodosGrafo {
+	public NodoGrafo primero;
+	public NodoGrafo ultimo;
+	public int cantElementos;
+	
+	/**
+	 * Constructor de TLista
+	 */
+	public ListaNodosGrafo (){
+		this.primero = null;
+		this.ultimo = null;
+		this.cantElementos = 0;
+	}
+	
+	
+	
+	public boolean existeNodoPalabra(Comparable palabra) {
+		NodoGrafo first = this.primero;
+		return buscarRecursivo(first, unaEtiqueta);
+		return false;
+	}
+	
+	
+}

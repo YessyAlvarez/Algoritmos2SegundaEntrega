@@ -1,0 +1,16 @@
+package uy.ort.ob20182;
+import lista.TElemento;
+import lista.TLista;
+
+
+@SuppressWarnings("rawtypes")
+public class TVertice {
+	
+		public Comparable etiqueta;
+		public TLista adyacentes;
+		public boolean visitado;
+		public int numeracion;
+		public int cantDescendientes;
+
+		
+}

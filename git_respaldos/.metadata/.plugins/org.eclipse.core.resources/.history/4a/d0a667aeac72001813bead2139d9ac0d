@@ -1,0 +1,37 @@
+package uy.ort.ob20182;
+
+import lista.IElemento;
+
+@SuppressWarnings("rawtypes")
+public class GrafoNoDirigido {
+
+	public ListaNodosGrafo nodosGrafo;
+	public ListaNodosAristas aristasGrafo;
+	
+	public GrafoNoDirigido() {
+		this.nodosGrafo = new ListaNodosGrafo();
+		this.aristasGrafo = new ListaNodosAristas();
+	}
+
+	public void crearVertice( Comparable palabra) {
+		if(existeNodoPalabra(palabra)) {
+			
+		}
+		
+	}
+	
+	
+	
+	private boolean existeNodoPalabra(Comparable palabra) {
+		IElemento first = this.primero;
+		return buscarRecursivo(first, unaEtiqueta);
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+}

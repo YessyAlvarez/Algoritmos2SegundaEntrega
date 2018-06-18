@@ -1,0 +1,29 @@
+package uy.ort.ob20182;
+
+import lista.IElemento;
+
+@SuppressWarnings("rawtypes")
+public class NodoGrafo {
+	
+	
+	public NodoGrafo siguiente;
+	public Comparable palabra;
+
+	
+	
+	
+	
+	
+	
+	public Comparable getEtiqueta() {
+		return this.palabra;
+	}
+
+	
+	public NodoGrafo getSiguiente() {
+		return this.siguiente;
+	}
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package uy.ort.ob20182;
+import lista.TElemento;
+import lista.TLista;
+
+
+@SuppressWarnings("rawtypes")
+public class TVertice {
+	
+
+}

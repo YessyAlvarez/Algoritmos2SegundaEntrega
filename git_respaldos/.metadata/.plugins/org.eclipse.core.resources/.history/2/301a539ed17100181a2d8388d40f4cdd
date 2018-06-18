@@ -1,0 +1,20 @@
+package uy.ort.ob20182;
+
+
+
+public class GrafoNoDirigido {
+	
+	int cantNodos;
+	public TLista vertices;
+	public TLista aristas;
+	
+	public GrafoNoDirigido(int cantNodos) {
+		this.cantNodos = cantNodos;
+		this.vertices = new TLista[cantNodos+1];
+		for(int i=1; i<=cantNodos; i++) {
+			this.ListaAdy[i]=new Lista();
+		}
+	}
+	
+	
+}

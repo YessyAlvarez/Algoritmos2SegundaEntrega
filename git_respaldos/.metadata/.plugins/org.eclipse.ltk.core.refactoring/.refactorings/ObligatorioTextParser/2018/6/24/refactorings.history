@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;ob20182&apos; to &apos;uy.ort.ob20182&apos;&#x0D;&#x0A;- Original project: &apos;ObligatorioTextParser&apos;&#x0D;&#x0A;- Original element: &apos;ObligatorioTextParser/src/ob20182&apos;&#x0D;&#x0A;- Renamed element: &apos;ObligatorioTextParser/src/uy.ort.ob20182&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings&#x0D;&#x0A;- Rename subpackages of the package" description="Rename package &apos;ob20182&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;ob20182" name="uy.ort.ob20182" qualified="false" references="true" stamp="1529185948851" textual="false" version="1.0"/>
+</session>

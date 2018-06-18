@@ -1,0 +1,16 @@
+package uy.ort.ob20182;
+
+public class GrafoNoDirigido {
+
+	public GrafoLista(int cantNodos) {
+		this.size=0;
+		this.cantNodos = cantNodos;
+		this.nodosUsados = new boolean[cantNodos+1];
+		this.ListaAdy = new Lista[cantNodos+1];
+		for(int i=1; i<=cantNodos; i++) {
+			this.ListaAdy[i]=new Lista();
+		}
+	}
+	
+	
+}

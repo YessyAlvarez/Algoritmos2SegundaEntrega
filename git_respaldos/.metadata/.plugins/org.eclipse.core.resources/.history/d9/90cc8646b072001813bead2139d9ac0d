@@ -1,0 +1,30 @@
+package uy.ort.ob20182;
+
+
+@SuppressWarnings("rawtypes")
+public class NodoGrafo {
+	
+	
+	public NodoGrafo siguiente;
+	public Comparable palabra;
+	public int apariciones;
+	
+	
+	
+	public void setApariciones() {
+		this.apariciones++;
+	}
+	
+	
+	public Comparable getPalabra() {
+		return this.palabra;
+	}
+
+	
+	public NodoGrafo getSiguiente() {
+		return this.siguiente;
+	}
+	
+	
+	
+}

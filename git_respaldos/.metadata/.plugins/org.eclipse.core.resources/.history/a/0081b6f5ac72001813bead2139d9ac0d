@@ -1,0 +1,36 @@
+package uy.ort.ob20182;
+
+import lista.IElemento;
+
+public class ListaNodosGrafo {
+	public NodoGrafo primero;
+	public NodoGrafo ultimo;
+	public int cantElementos;
+	
+	/**
+	 * Constructor de TLista
+	 */
+	public ListaNodosGrafo (){
+		this.primero = null;
+		this.ultimo = null;
+		this.cantElementos = 0;
+	}
+	
+	
+	
+	public boolean existeNodoPalabra(Comparable unaPalabra) {
+		NodoGrafo first = this.primero;
+		return buscarRecursivo(first, unaPalabra);
+	}
+	
+	
+	public NodoGrafo buscarRecursivo(NodoGrafo first, Comparable unaPalabra){
+		if (first == null)
+			return null;
+		else if (first.getEtiqueta().equals(unaEtiqueta))
+			return first;
+		else
+			return (buscarRecursivo(first.getSiguiente(), unaEtiqueta));
+	}
+	
+}

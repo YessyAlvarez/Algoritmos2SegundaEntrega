@@ -1,0 +1,14 @@
+package uy.ort.ob20182;
+
+import residuos.TLista;
+
+public class GrafoNoDirigido {
+
+	public TLista vertices;
+	public TLista aristas;
+	
+	public GrafoNoDirigido() {
+		this.vertices = new TLista();
+		this.aristas = new TLista();
+	}
+}

@@ -1,0 +1,21 @@
+package uy.ort.ob20182;
+
+import lista.IElemento;
+
+public class ListaNodosGrafo {
+	public IElemento primero;
+	public IElemento ultimo;
+	public int cantElementos;
+	
+	/**
+	 * Constructor de TLista
+	 */
+	public TLista (){
+		this.primero = null;
+		this.ultimo = null;
+		this.cantElementos = 0;
+	}
+	
+	
+	
+}

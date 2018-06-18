@@ -1,0 +1,30 @@
+package uy.ort.ob20182;
+
+
+
+public class GrafoNoDirigido {
+	
+	public TLista vertices;
+	public TLista aristas;
+	
+	public GrafoNoDirigido() {
+		this.vertices = new TLista();
+		this.aristas = new TLista();
+	}
+
+	public void insertarElemento(String string) {
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,12 @@
+package uy.ort.ob20182;
+
+import uy.ort.ob20182.TVertice;
+
+public class IElemento {
+
+	public TVertice getDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

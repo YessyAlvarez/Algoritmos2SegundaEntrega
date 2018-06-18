@@ -1,0 +1,71 @@
+package uy.ort.ob20182;
+
+@SuppressWarnings("rawtypes")
+public class GrafoNoDirigido {
+	
+	public TLista vertices;
+	public TLista aristas;
+	
+	public GrafoNoDirigido() {
+		this.vertices = new TLista();
+		this.aristas = new TLista();
+	}
+
+	/**
+	 * Método encargado de insertar un vértice en el grafo.
+	 *  
+	 * No pueden ingresarse vértices con la misma etiqueta. 
+	 *   
+	 * @param unaPalabra del vértice a ingresar.
+	**/
+	public void insertarVertice(Comparable unaPalabra) {
+		
+		if (this.existeVertice(unaPalabra)) {
+			
+		}else{
+			TVertice vertice = new TVertice(unaPalabra);
+			IElemento elemento = new TElemento(unaPalabra, vertice);
+			this.vertices.insertarAlFinal(elemento);
+			
+		}
+				
+	}
+
+	/**
+	 * Método encargado de verificar la existencia de un vértice dentro del grafo.-
+	 * 
+	 * La etiqueta especificada como parámetro debe ser válida.
+	 * 
+	 * @param unaEtiqueta Etiqueta del vértice a buscar.-
+	 * @return True si existe el vertice con la etiqueta indicada, false en caso contrario
+	 */
+	public boolean existeVertice(Comparable unaEtiqueta) {
+		if((unaEtiqueta != null) && (unaEtiqueta != "") && (unaEtiqueta != " ")){
+			IElemento elemento = this.vertices.buscar(unaEtiqueta);
+			if (elemento != null)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+
+	public TVertice obtenerVertice(Comparable unaEtiqueta) {
+		if((unaEtiqueta != null) && (unaEtiqueta != "") && (unaEtiqueta != " ")){
+			IElemento elemento = this.vertices.buscar(unaEtiqueta);
+			if (elemento != null)
+				return (TVertice)elemento.getDatos();
+			else
+				return null;
+		}
+		else
+			return null;
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,14 @@
+package uy.ort.ob20182;
+
+public class TLista {
+
+	public void insertarAlFinal(IElemento elemento) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+	
+}

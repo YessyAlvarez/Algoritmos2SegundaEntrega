@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TVertice.java&apos; to &apos;ObligatorioTextParser/src/uy.ort.ob20182&apos;&#x0D;&#x0A;- Original project: &apos;src&apos;&#x0D;&#x0A;- Destination element: &apos;ObligatorioTextParser/src/uy.ort.ob20182&apos;&#x0D;&#x0A;- Original element: &apos;TVertice.java&apos;" description="Copy compilation unit" destination="=ObligatorioTextParser/src&lt;uy.ort.ob20182" element1="/&lt;{TVertice.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1529215189300" units="1" version="1.0"/>
+</session>

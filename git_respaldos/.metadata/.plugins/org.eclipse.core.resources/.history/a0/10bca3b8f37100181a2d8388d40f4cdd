@@ -1,0 +1,227 @@
+package uy.ort.ob20182;
+import lista.IElemento;
+import lista.TElemento;
+import lista.TLista;
+
+
+@SuppressWarnings("rawtypes")
+public class TVertice {
+	
+		public Comparable etiqueta;
+		public TLista adyacentes;
+		public boolean visitado;
+		public int numeracion;
+		public int cantDescendientes;
+
+		
+		public TLista getAdyacentes() {
+			return adyacentes;
+		}
+		
+		/**
+		 * Método constructor de la clase.
+		 * 
+		 * @param etiqueta
+		 */
+		public TVertice(Comparable etiqueta) {
+			this.etiqueta = etiqueta;
+			adyacentes = new TLista();
+			visitado = false;
+		}
+
+		/**
+		 * Método que devuelve el vértice a donde hace referencia la primer
+		 * adyacencia.
+		 * 
+		 * @return vértice
+		 */
+		public TVertice primerAdyacente() {
+			IElemento elemAdy = this.adyacentes.primero;
+			if (elemAdy == null)
+				return null;
+			else
+				return (TVertice) ((TAdyacencia)elemAdy.getDatos()).destino;
+		}
+
+		/**
+		 * Dado un vértice deuvele el siguiente adyacente.
+		 * 
+		 * @param vertice
+		 * @return siguiente adyacente a "vertice"
+		 */
+		public TVertice siguienteAdyacente(TVertice vertice) {
+			IElemento elemAdy = this.adyacentes.buscar(vertice.etiqueta);
+			if (elemAdy != null && elemAdy.getSiguiente() != null) {
+				return (TVertice)((TAdyacencia) elemAdy.getSiguiente().getDatos()).destino;
+			} else
+				return null;
+		}
+
+		/**
+		 * Inserta una adyacencia en la lista de adyacencias del vertice
+		 * 
+		 * @param destino
+		 * @param costo
+		 * @return
+		 */
+		public boolean insertarAdyacencia(TVertice destino, Comparable costo) {			
+			if ((destino.adyacentes == null)||(!this.existeAdyacencia(destino.etiqueta))){
+				TAdyacencia adyacencia = new TAdyacencia(destino, costo);
+				IElemento adyacenciaElem = new TElemento(destino.etiqueta, adyacencia);
+				return this.adyacentes.insertarOrdenado(adyacenciaElem);
+			}
+			else
+				return false;			
+		}
+
+		/**
+		 * Dado el vértice destino, devuelve el costo de la adyacencia que hace
+		 * referencia a dicho vértice.
+		 * 
+		 * @param destino
+		 * @return costo
+		 */
+		public Comparable obtenerCostoAdyacencia(TVertice destino) {
+			TAdyacencia ady;
+			if (this.adyacentes.esVacia()) {
+				return null;
+			} else {
+					IElemento elem = this.adyacentes.buscar(destino.etiqueta);
+					if (elem == null)
+						return null;
+					else {
+							ady = (TAdyacencia)elem.getDatos();
+							return ady.costo;
+					}
+			}
+		}
+
+		/**
+		 * Elimina una adyacencia de la lista de adyacencias.
+		 * 
+		 * @param destino
+		 * @return resultado de la operación
+		 */
+		public boolean eliminarAdyacencia(Comparable destino) {
+			IElemento elemAElim = this.adyacentes.eliminar(destino);
+			if(elemAElim != null)
+				return true;
+			else
+				return false;
+		}
+
+		/**
+		 * Obtiene una adyacencia de la lista de adyacencias.
+		 * 
+		 * @param destino
+		 * @return adyacencia
+		 */
+		public TAdyacencia obtenerAdyacencia(Comparable destino) {
+			return (TAdyacencia)this.adyacentes.buscar(destino).getDatos();
+		}
+
+		/**
+		 * Dada una etiqueta "destino" verifica si existe una adyacencia.
+		 * 
+		 * @param destino
+		 * @return resultado de la operación
+		 */
+		public boolean existeAdyacencia(Comparable destino) {
+			IElemento adyacencia = this.adyacentes.buscar(destino);
+			if(adyacencia != null)
+				return true;
+			else 
+				return false;
+		}
+
+		/**
+		 * Imprime un etiqueta de un vertice.
+		 * 
+		 * @return etiqueta
+		 */
+		public String imprimirEtiqueta() {
+			return etiqueta.toString();
+		}
+		
+		@SuppressWarnings("unchecked")
+		public void obtenerTodosLosCaminos (TVertice Destino, TCamino unCamino, TCaminos todosLosCaminos){
+			visitado = true;
+			TLista listaAdyacentes = adyacentes;
+			IElemento adyacente = listaAdyacentes.primero;
+			IElemento todosAdyacentes = adyacente;
+			while (todosAdyacentes != null){
+				unCamino.agregarAdyacencia((TAdyacencia)todosAdyacentes.getDatos());
+				if (0 == todosAdyacentes.getEtiqueta().compareTo(Destino.etiqueta)){
+					todosLosCaminos.agregarCamino(unCamino);}
+				else{
+					TVertice vertAdyacente = ((TAdyacencia) todosAdyacentes.getDatos()).destino;
+					if (!vertAdyacente.visitado)
+						vertAdyacente.obtenerTodosLosCaminos(Destino,unCamino, todosLosCaminos);
+				}
+				unCamino.adyacencias.eliminar(todosAdyacentes.getEtiqueta());
+				todosAdyacentes = todosAdyacentes.getSiguiente();
+			}
+			unCamino.adyacencias.eliminar(adyacente.getEtiqueta());
+			visitado = false;
+		}
+		
+		public boolean tieneCiclos(int[] ordenVisitado){
+			this.visitado = true;
+			this.numeracion = ordenVisitado[0];
+			TVertice w = this.primerAdyacente();
+			boolean tieneCiclos = false;
+			this.cantDescendientes = 0;
+			while((w != null)&&(!tieneCiclos)){
+				if(!w.visitado){
+					ordenVisitado[0]++;
+					tieneCiclos = w.tieneCiclos(ordenVisitado);
+					this.cantDescendientes = this.cantDescendientes + w.cantDescendientes+1;
+				} else {
+					if ((w.numeracion+w.cantDescendientes)<=(this.numeracion)){
+						return true;
+					}
+				}
+				w = this.siguienteAdyacente(w);
+			}
+			return tieneCiclos;
+		}
+		
+		public void puntosArticulacion(Comparable raiz, Comparable anterior, int[] ordenVisitado, TRecorrido articulaciones){
+			this.visitado = true;
+			this.numeracion = ordenVisitado[0];
+			TVertice w = this.primerAdyacente();
+			this.cantDescendientes = this.numeracion;
+			TRecorrido hijos = new TRecorrido();
+			boolean esArticulacion = false;
+			while(w != null){
+				if ((w.etiqueta.compareTo(anterior)!=0)){
+					if(!w.visitado){
+						ordenVisitado[0]++;
+						w.puntosArticulacion(raiz, this.etiqueta, ordenVisitado, articulaciones);
+						if (this.cantDescendientes > w.cantDescendientes){
+							this.cantDescendientes = w.cantDescendientes;
+						}
+						hijos.insertarAlPrincipio(new TElemento(w.etiqueta, w));
+					} else {
+						if (w.numeracion < this.cantDescendientes){
+							this.cantDescendientes = w.cantDescendientes;
+						}
+					}
+				}
+				w = this.siguienteAdyacente(w);
+			}
+			if ((this.etiqueta.compareTo(raiz) == 0)&&(hijos.cantElementos > 1)){
+				esArticulacion = true;
+			} else {
+				while ((hijos.primero != null)&&(!esArticulacion)&&(this.etiqueta.compareTo(raiz) != 0)){
+				if (((TVertice) hijos.primero.getDatos()).cantDescendientes >= this.numeracion){
+						esArticulacion = true;
+					}
+					hijos.quitarPrimero();
+				}
+			}
+			if (esArticulacion){
+				articulaciones.insertarAlPrincipio(new TElemento(this.etiqueta, this));
+			}
+		}
+}

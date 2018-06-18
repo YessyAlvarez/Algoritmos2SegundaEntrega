@@ -1,0 +1,15 @@
+package uy.ort.ob20182;
+
+@SuppressWarnings("rawtypes")
+public class TVertice {
+	
+	private string palabra;
+	private int apariciones;
+	
+
+	public TVertice(Comparable unaEtiqueta) {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

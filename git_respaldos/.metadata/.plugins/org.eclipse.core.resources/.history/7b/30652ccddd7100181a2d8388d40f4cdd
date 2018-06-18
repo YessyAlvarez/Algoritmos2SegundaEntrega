@@ -1,0 +1,20 @@
+package uy.ort.ob20182;
+
+public class main {
+
+	public static void main(String[] args) {
+
+
+		
+		
+		
+		Sistema sis = new Sistema();
+		sis.inicializarSistema(10);
+		String texto = "hola hola.hola,hola:hola(hola)hola¡hola!hola¿hola?hola";	
+		sis.analizarTexto(texto);
+		
+		
+
+	}
+
+}

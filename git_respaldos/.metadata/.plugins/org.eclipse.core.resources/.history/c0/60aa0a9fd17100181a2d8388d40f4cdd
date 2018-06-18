@@ -1,0 +1,16 @@
+package uy.ort.ob20182;
+
+
+
+public class GrafoNoDirigido {
+	
+	int cantNodos;
+	public TLista vertices;
+	public TLista aristas;
+	
+	public GrafoNoDirigido(int cantNodos) {
+		this.cantNodos = cantNodos;
+		
+	
+	
+}

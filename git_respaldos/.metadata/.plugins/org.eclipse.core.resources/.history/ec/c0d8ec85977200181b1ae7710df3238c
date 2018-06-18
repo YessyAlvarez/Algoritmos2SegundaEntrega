@@ -1,0 +1,10 @@
+package uy.ort.ob20182;
+
+@SuppressWarnings("rawtypes")
+public class TElemento extends IElemento {
+
+	public TElemento(Comparable unaEtiqueta, TVertice vertice) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

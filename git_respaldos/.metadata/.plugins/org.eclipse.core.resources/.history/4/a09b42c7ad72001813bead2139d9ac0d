@@ -1,0 +1,10 @@
+package uy.ort.ob20182;
+
+
+public class NodoGrafo {
+	
+	
+	public NodoGrafo siguiente;
+	public Comparable palabra;
+
+}

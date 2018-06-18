@@ -1,0 +1,18 @@
+package uy.ort.ob20182;
+
+import uy.ort.ob20181.NodoLista;
+import uy.ort.ob20181.String;
+
+@SuppressWarnings("rawtypes")
+public class TElemento extends IElemento {
+	
+	private String dato;
+	private NodoLista sig;
+	
+	
+
+	public TElemento(Comparable unaEtiqueta, TVertice vertice) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

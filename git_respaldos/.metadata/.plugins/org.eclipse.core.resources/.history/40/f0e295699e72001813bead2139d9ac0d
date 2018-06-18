@@ -1,0 +1,10 @@
+package uy.ort.ob20182;
+
+public class IElemento {
+
+	public TVertice getDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package uy.ort.ob20182;
+
+
+public class GrafoNoDirigido {
+
+	public Lista nodosGrafo;
+	public Lista aristasGrafo;
+	
+	public GrafoNoDirigido() {
+		this.nodosGrafo = new Lista();
+		this.aristasGrafo = new Lista();
+	}
+}
